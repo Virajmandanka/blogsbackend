@@ -6,7 +6,7 @@ const auth = require("../midelware/auth")
 const UserBlogss=express.Router()
 
 
-UserBlogss.get("/",auth,async(req,res)=>{
+UserBlogss.get("/",async(req,res)=>{
     let Blogs = await Blogsmodel.find().populate('userID','username email')
    res.send({blogs : Blogs})
 })
